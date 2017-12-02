@@ -1,0 +1,23 @@
+{
+  "name": "es6-3d-vectors",
+  "description": "Basic 3D vector functions",
+  "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "test": "node $NODE_DEBUG_OPTION node_modules/.bin/ava tests/*.js --verbose",
+    "test:watch": "ava tests/*.js --verbose --watch"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}
