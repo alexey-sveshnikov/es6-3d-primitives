@@ -1,6 +1,6 @@
 'use strict';
 
-export class VectorError extends Error {}
+import {VectorError} from "./exceptions";
 
 export class Vector {
     constructor(x, y, z) {
@@ -53,9 +53,8 @@ export class Vector {
         return this.div(this.length());
     }
 
-
     equals(v) {
-        return this.x == v.x && this.y == v.y && this.z == v.z;
+        return this.x === v.x && this.y === v.y && this.z === v.z;
     }
 
     dot(v) {

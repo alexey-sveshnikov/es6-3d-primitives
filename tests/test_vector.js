@@ -3,15 +3,15 @@
 import {Vector, VectorError} from '../vector.js';
 import {test} from 'ava';
 
-function check_vector_equals(t, v1, v2) {
+function check_equals(t, v1, v2) {
     t.true(v1.equals(v2));
 }
 
 test('Test vector comparing', t => {
     let v = new Vector(1, 2, 3);
 
-    check_vector_equals(t, v, v);
-    check_vector_equals(t, v, new Vector(1, 2, 3));
+    check_equals(t, v, v);
+    check_equals(t, v, new Vector(1, 2, 3));
 
     t.false(v.equals(new Vector(0, 2, 3)));
     t.false(v.equals(new Vector(1, 0, 3)));
@@ -24,7 +24,7 @@ test('Test vector addition', t => {
 
     const result = v1.add(v2);
 
-    check_vector_equals(t, result, new Vector(5, 7, 9));
+    check_equals(t, result, new Vector(5, 7, 9));
 
     // Test that operands are unchanged
     t.true(v1.equals(new Vector(1, 2, 3)));
@@ -37,7 +37,7 @@ test('Test vector subtraction', t => {
 
     const result = v1.sub(v2);
 
-    check_vector_equals(t, result, new Vector(-2, 0, 2));
+    check_equals(t, result, new Vector(-2, 0, 2));
 
     // Test that operands are unchanged
     t.true(v1.equals(new Vector(1, 2, 3)));
@@ -49,7 +49,7 @@ test('Test vector multiplication (by scalar)', t => {
 
     const result = v1.mul(10);
 
-    check_vector_equals(t, result, new Vector(10, 20, 30));
+    check_equals(t, result, new Vector(10, 20, 30));
 
     // Test that operands are unchanged
     t.true(v1.equals(new Vector(1, 2, 3)));
@@ -61,7 +61,7 @@ test('Test vector multiplication (by vector)', t => {
 
     const result = v1.mul(v2);
 
-    check_vector_equals(t, result, new Vector(5, 14, 33));
+    check_equals(t, result, new Vector(5, 14, 33));
 
     // Test that operands are unchanged
     t.true(v1.equals(new Vector(1, 2, 3)));
@@ -74,7 +74,7 @@ test('Test vector cross product', t => {
 
     const result = v1.cross(v2);
 
-    check_vector_equals(t, result, new Vector(-4, 8, -4));
+    check_equals(t, result, new Vector(-4, 8, -4));
 
     t.true(v1.cross(v1).equals(new Vector(0, 0, 0)));
 
@@ -108,7 +108,7 @@ test('Test vectors dot product', t => {
 test('Test vectors negation operation', t => {
     const v1 = new Vector(1, 2, 3);
 
-    check_vector_equals(t, v1.neg(), new Vector(-1, -2, -3));
+    check_equals(t, v1.neg(), new Vector(-1, -2, -3));
 });
 
 test('Test vectors length calculation', t => {
@@ -127,5 +127,5 @@ test('Test vectors normalize operation', t => {
 
     t.is(v1.normalize().length(), 1);
 
-    check_vector_equals(t, v1.normalize(), v2.normalize())
+    check_equals(t, v1.normalize(), v2.normalize())
 });
