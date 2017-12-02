@@ -1,6 +1,6 @@
 {
-  "name": "es6-3d-vectors",
-  "description": "Basic 3D vector functions",
+  "name": "es6-3d-primitives",
+  "description": "Basic 3D primitives (Points, Vector, Normales)",
   "version": "0.0.1",
   "license": "BSD-3-Clause",
   "scripts": {
