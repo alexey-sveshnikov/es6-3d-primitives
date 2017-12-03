@@ -1,7 +1,7 @@
 'use strict';
 
-import {Vector} from '../vector.js';
-import {Normal} from '../normal.js';
+import {Vector} from '../src/vector.js';
+import {Normal} from '../src/normal.js';
 import {test} from 'ava';
 
 function check_equals(t, n1, n2) {

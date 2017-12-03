@@ -1,7 +1,8 @@
 'use strict';
 
-import {Vector, VectorError} from '../vector.js';
-import {Point} from '../point.js';
+import {Vector} from '../src/vector.js';
+import {Point, PointError} from '../src/point.js';
+import {VectorError} from "../src/exceptions";
 import {test} from 'ava';
 
 function check_equals(t, p1, p2) {

@@ -1,6 +1,6 @@
 'use strict';
 
-import {Vector, VectorError} from '../vector.js';
+import {Vector, VectorError} from '../src/vector.js';
 import {test} from 'ava';
 
 function check_equals(t, v1, v2) {
