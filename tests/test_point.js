@@ -48,11 +48,18 @@ test('Test subtracting vector from the point', t => {
     check_equals(t, p.sub(v), new Point(-1, -2, -3));
 });
 
-test('Test adding vector to point (invalid argument)', t => {
+test('Test subtracting point from the point', t => {
+    const p = new Point(0, 0, 0);
+    const v = new Point(1, 2, 3);
+
+    check_equals(t, p.sub(v), new Vector(-1, -2, -3));
+});
+
+test('Test adding point to point (invalid argument)', t => {
     const p = new Point(0, 0, 0);
 
     t.throws(() => {
-        p.sub(p);
+        p.sub('3');
     }, VectorError);
 });
 

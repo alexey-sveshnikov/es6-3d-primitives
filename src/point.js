@@ -28,6 +28,9 @@ export class Point {
     sub(v) {
         if (v instanceof Vector) {
             return new Point(this.x - v.x, this.y - v.y, this.z - v.z);
+        } else if (v instanceof Point) {
+            return new Vector(this.x - v.x, this.y - v.y, this.z - v.z);
+            return this.distance(v);
         } else {
             throw new VectorError(`You can only subtract vectors and points from the point (got ${typeof(v)})`);
         }
