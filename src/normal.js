@@ -22,7 +22,7 @@ export class Normal {
         } else if (v instanceof Vector) {
             return new Vector(this.x + v.x, this.y + v.y, this.z + v.z); // TODO: DRY
         } else {
-            throw new VectorError('You can only add vector or normal to the normal');
+            throw new VectorError(`You can only add vector or normal to the normal (got ${typeof(v)})`);
         }
     }
 
@@ -32,7 +32,7 @@ export class Normal {
         } else if (v instanceof Vector) {
             return new Vector(this.x - v.x, this.y - v.y, this.z - v.z); // TODO: DRY
         } else {
-            throw new VectorError('You can only subtract vector or normal to the normal');
+            throw new VectorError(`You can only subtract vector or normal to the normal (got ${typeof(v)})`);
         }
     }
 
@@ -40,7 +40,7 @@ export class Normal {
         if (v instanceof Vector) {
             return this.x * v.x + this.y * v.y + this.z * v.z;
         } else {
-            throw new VectorError('You can only calculate dot product with a vector');
+            throw new VectorError(`You can only calculate dot product with a vector (got ${typeof(v)})`);
         }
     }
 
@@ -48,7 +48,7 @@ export class Normal {
         if (typeof(c) === 'number') {
             return new Normal(this.x * c, this.y * c, this.z * c);
         } else {
-            throw new VectorError('You can only multiply normal with a scalar');
+            throw new VectorError(`You can only multiply normal with a scalar (got ${typeof(c)})`);
         }
     }
 
@@ -58,14 +58,14 @@ export class Normal {
         if (p instanceof Point) {
             return Math.sqrt(this.distance2(p));
         } else {
-            throw new VectorError('You can only calculate distance between two points');
+            throw new VectorError(`You can only calculate distance between two points (got ${typeof(p)})`);
         }
     }
     distance2(p) {
         if (p instanceof Point) {
             return (this.x - p.x) ** 2 + (this.y - p.y) ** 2 + (this.z - p.z) ** 2;
         } else {
-            throw new VectorError('You can only calculate distance2 between two points');
+            throw new VectorError(`You can only calculate distance2 between two points (got ${typeof(p)})`);
         }
     }
 }

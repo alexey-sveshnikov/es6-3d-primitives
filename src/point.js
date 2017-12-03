@@ -21,7 +21,7 @@ export class Point {
         if (v instanceof Vector) {
             return new Point(this.x + v.x, this.y + v.y, this.z + v.z);
         } else {
-            throw VectorError('You can only add vectors to the point');
+            throw new VectorError(`You can only add vectors to the point (got ${typeof(v)})`);
         }
     }
 
@@ -29,7 +29,7 @@ export class Point {
         if (v instanceof Vector) {
             return new Point(this.x - v.x, this.y - v.y, this.z - v.z);
         } else {
-            throw VectorError('You can only subtract vectors from the point');
+            throw new VectorError(`You can only subtract vectors and points from the point (got ${typeof(v)})`);
         }
     }
 
@@ -37,14 +37,14 @@ export class Point {
         if (p instanceof Point) {
             return Math.sqrt(this.distance2(p));
         } else {
-            throw VectorError('You can only calculate distance between two points');
+            throw new VectorError(`You can only calculate distance between two points (got ${typeof(p)})`);
         }
     }
     distance2(p) {
         if (p instanceof Point) {
             return (this.x - p.x) ** 2 + (this.y - p.y) ** 2 + (this.z - p.z) ** 2;
         } else {
-            throw VectorError('You can only calculate distance2 between two points');
+            throw new VectorError(`You can only calculate distance2 between two points (got ${typeof(p)})`);
         }
     }
 }

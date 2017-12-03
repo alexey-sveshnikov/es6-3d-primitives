@@ -23,7 +23,7 @@ export class Vector {
         } else if (typeof(v) == 'number') {
             return new Vector(this.x * v, this.y * v, this.z * v);
         } else {
-            throw new VectorError('Vector.mul() operand must be a vector or scalar')
+            throw new VectorError(`Vector.mul() operand must be a vector or scalar (got ${typeof(v)})`)
         }
     }
 
@@ -33,7 +33,7 @@ export class Vector {
         } else if (typeof(v) == 'number') {
             return new Vector(this.x / v, this.y / v, this.z / v);
         } else {
-            throw new VectorError('Vector.div() operand must be a vector or scalar')
+            throw new VectorError(`Vector.div() operand must be a vector or scalar (got ${typeof(v)})`)
         }
     }
 
