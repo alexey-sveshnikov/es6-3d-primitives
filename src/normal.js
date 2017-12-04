@@ -52,8 +52,6 @@ export class Normal {
         }
     }
 
-
-
     distance(p) {
         if (p instanceof Point) {
             return Math.sqrt(this.distance2(p));
@@ -61,6 +59,7 @@ export class Normal {
             throw new VectorError(`You can only calculate distance between two points (got ${typeof(p)})`);
         }
     }
+
     distance2(p) {
         if (p instanceof Point) {
             return (this.x - p.x) ** 2 + (this.y - p.y) ** 2 + (this.z - p.z) ** 2;
