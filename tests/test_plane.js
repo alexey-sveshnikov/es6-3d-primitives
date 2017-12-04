@@ -19,12 +19,12 @@ test('Test plane hit function', t => {
 
     const zero = new Point(0, 0, 0);
 
-    // Ray hits directly to plane
+    // Ray hits directly to the plane
     t.true(p.hit(new Ray(zero, new Vector(0, 0, 1))));
 
-    // ray goes parallel to plane
+    // ray goes parallel to the plane
     t.false(p.hit(new Ray(zero, new Vector(1, 0, 0))));
 
-    // ray slightly sloped towards plane
+    // ray slightly sloped towards the plane
     t.true(p.hit(new Ray(zero, new Vector(1, 0, 0.000001))));
 });

@@ -11,8 +11,9 @@ export class Plane {
 
     hit(ray) {
         const t = this.normal.dot(this.point.sub(ray.origin)) / ray.vector.dot(this.normal);
-        console.log(`hit point: ${t}`)
 
+        // TODO: pay attention to the ray direction. At this point we count a hit even in case if ray goes
+        // to opposite direction
         return isFinite(t) && t >= 0;
     }
 }
