@@ -4,9 +4,10 @@ import {Point} from './point.js';
 import {VectorError} from './exceptions.js';
 
 export class Sphere {
-    constructor(center, radius) {
+    constructor(center, radius, color) {
         this.center = center;
         this.radius = radius;
+        this.color = color;
     }
 
     hit(ray) {

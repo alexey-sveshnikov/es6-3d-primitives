@@ -1,12 +1,14 @@
 import {Normal} from './normal.js';
 import {Point} from './point.js';
+import {Color} from './color.js';
 
 import {VectorError} from './exceptions.js';
 
 export class Plane {
-    constructor(point, normal) {
+    constructor(point, normal, color) {
         this.point = point;
         this.normal = normal;
+        this.color = color;
     }
 
     hit(ray) {

@@ -10,6 +10,6 @@ export class Ray {
     }
 
     toString() {
-        return `Ray(${this.origin.x}x${this.origin.y}x${this.origin.z} -> ${this.vector.x}x${this.vector.y}x${this.vector.z})`
+        return `Ray(${this.origin.x}, ${this.origin.y}, ${this.origin.z} -> ${this.vector.x}, ${this.vector.y}, ${this.vector.z})`
     }
 }
