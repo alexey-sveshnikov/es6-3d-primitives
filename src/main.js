@@ -1,5 +1,6 @@
 'use strict';
 
+export {Color} from './color.js';
 export {Normal} from './normal.js';
 export {Plane} from './plane.js';
 export {Point} from './point.js';
