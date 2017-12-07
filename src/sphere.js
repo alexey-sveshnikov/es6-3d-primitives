@@ -21,6 +21,19 @@ export class Sphere {
 
         // TODO: pay attention to the ray direction. At this point we count a hit even in case if ray goes
         // to opposite direction
-        return isFinite(discr) && discr >= 0;
+        if (! isFinite(discr) || discr < 0) {
+            return false;
+        }
+
+        const x1 = (-b - Math.sqrt(discr)) / 2 * a;
+        const x2 = (-b + Math.sqrt(discr)) / 2 * a;
+
+        if (x1 >= 0) {
+            return x1;
+        } else if (x2 >= 0) {
+            return x2;
+        } else {
+            return false;
+        }
     }
 }

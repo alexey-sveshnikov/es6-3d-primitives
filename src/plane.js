@@ -16,6 +16,9 @@ export class Plane {
 
         // TODO: pay attention to the ray direction. At this point we count a hit even in case if ray goes
         // to opposite direction
-        return isFinite(t) && t >= 0;
+        if (! isFinite(t) && t < 0) {
+            return false;
+        }
+        return t;
     }
 }
