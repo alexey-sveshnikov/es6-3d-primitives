@@ -12,22 +12,22 @@ function check_equals(t, n1, n2) {
 }
 
 test('Test sphere hit function', t => {
-    const p = new Sphere(new Point(1, 1, 1), 0.5);
+    const p = new Sphere(new Point(0, 0, 0), 0.5);
 
-    const zero = new Point(0, 0, 0);
+    const origin = new Point(0, 0, -1);
 
     // Ray hits directly to the sphere
-    t.true(p.hit(new Ray(zero, new Vector(1, 1, 1))));
+    t.truthy(p.hit(new Ray(origin, new Vector(0, 0, 1))));
 
     // ray goes from inside a sphere
-    t.true(p.hit(new Ray(new Point(1, 1, 1), new Vector(1, 1, 1))));
+    t.truthy(p.hit(new Ray(new Point(0, 0, 0), new Vector(0, 0, 1))));
 
     // ray goes from the sphere boundary
-    t.true(p.hit(new Ray(new Point(1.5, 1, 1), new Vector(1, 1, 1))));
+    t.falsy(p.hit(new Ray(new Point(0, 0, 0.5), new Vector(0, 0, 1))));
 
     // ray goes in other direction
-    t.false(p.hit(new Ray(zero, new Vector(1, 0, 0))));
+    t.falsy(p.hit(new Ray(origin, new Vector(0, 1, 0))));
 
     // ray goes in opposite direction
-    t.true(p.hit(new Ray(zero, new Vector(-1, -1, -1))));
+    t.falsy(p.hit(new Ray(origin, new Vector(0, 0, -1))));
 });
