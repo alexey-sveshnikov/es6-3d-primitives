@@ -50,4 +50,7 @@ export class Point {
             throw new VectorError(`You can only calculate distance2 between two points (got ${typeof(p)})`);
         }
     }
+    toString() {
+        return `Point(x: ${this.x}, y: ${this.y}, z: ${this.z})`
+    }
 }

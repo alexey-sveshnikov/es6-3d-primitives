@@ -16,11 +16,14 @@ test('Test plane hit function', t => {
     const origin = new Point(0, 0, 1);
 
     // Ray hits directly to the plane
-    t.truthy(p.hit(new Ray(origin, new Vector(0, 0, -1))));
+    let result = p.hit(new Ray(origin, new Vector(0, 0, -1)));
+    t.truthy(result);
 
     // ray goes parallel to the plane
-    t.falsy(p.hit(new Ray(origin, new Vector(1, 0, 0))));
+    result = p.hit(new Ray(origin, new Vector(1, 0, 0)));
+    t.falsy(result);
 
     // ray slightly sloped towards the plane
-    t.truthy(p.hit(new Ray(origin, new Vector(0, 0, 0.000001))));
+    result = p.hit(new Ray(origin, new Vector(0, 0, 0.000001)));
+    t.truthy(result);
 });

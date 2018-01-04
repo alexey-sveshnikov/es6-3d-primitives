@@ -5,10 +5,12 @@ import {Normal} from '../src/normal.js';
 import {Sphere} from '../src/sphere.js';
 import {Point} from '../src/point.js';
 import {Ray} from '../src/ray.js';
+import {EPSILON, K} from '../src/constants.js';
 import {test} from 'ava';
 
-function check_equals(t, n1, n2) {
-    t.true(n1.equals(n2));
+
+function float_equal(t, a, b) {
+	t.true(Math.abs(a - b) <= EPSILON + K);
 }
 
 test('Test sphere hit function', t => {
@@ -17,13 +19,25 @@ test('Test sphere hit function', t => {
     const origin = new Point(0, 0, -1);
 
     // Ray hits directly to the sphere
-    t.truthy(p.hit(new Ray(origin, new Vector(0, 0, 1))));
+    let result = p.hit(new Ray(origin, new Vector(0, 0, 1)));
+    t.truthy(result);
+    float_equal(t, result.distance, 0.5);
+    check_equals(t, result.hit_point, new Point(0, 0, -0.5));
+    check_equals(t, result.normal, new Normal(0, 0, -0.5));
 
     // ray goes from inside a sphere
-    t.truthy(p.hit(new Ray(new Point(0, 0, 0), new Vector(0, 0, 1))));
+    result = p.hit(new Ray(new Point(0, 0, 0), new Vector(0, 0, 1)));
+    t.truthy(result);
+    t.is(result.distance, 0.5);
+    check_equals(t, result.hit_point, new Point(0, 0, 0.5));
+    check_equals(t, result.normal, new Normal(0, 0, 0.5));
 
     // ray goes from the sphere boundary
-    t.falsy(p.hit(new Ray(new Point(0, 0, 0.5), new Vector(0, 0, 1))));
+    result = p.hit(new Ray(new Point(0, 0, 0.5), new Vector(0, 0, 1)));
+    t.truthy(result);
+    t.is(result.distance, 0);
+    check_equals(t, result.hit_point, new Point(0, 0, 0.5));
+    check_equals(t, result.normal, new Normal(0, 0, 0.5));
 
     // ray goes in other direction
     t.falsy(p.hit(new Ray(origin, new Vector(0, 1, 0))));

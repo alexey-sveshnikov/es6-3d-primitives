@@ -12,13 +12,15 @@ export class Plane {
     }
 
     hit(ray) {
-        const t = this.normal.dot(this.point.sub(ray.origin)) / ray.vector.dot(this.normal);
+        const d = this.normal.dot(this.point.sub(ray.origin)) / ray.vector.dot(this.normal);
 
-        // TODO: pay attention to the ray direction. At this point we count a hit even in case if ray goes
-        // to opposite direction
-        if (! isFinite(t) && t < 0) {
-            return false;
+        if (! isFinite(d) && d < 0) {
+            return;
         }
-        return t;
+        return {
+            object: this,
+            distance: d,
+            normal: this.normal,
+        }
     }
 }
