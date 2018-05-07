@@ -40,7 +40,7 @@ export class Sphere {
 
         const hit_point = ray.origin.add(ray.vector.normalize().mul(distance));
 
-        const normal_vec = hit_point.sub(this.center);
+        const normal_vec = hit_point.sub(this.center).normalize();
         const normal = new Normal(normal_vec.x, normal_vec.y, normal_vec.z);
 
         return {
